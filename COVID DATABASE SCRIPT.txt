@@ -1,0 +1,30 @@
+create database dbPatients;
+use dbPatients;
+
+create table tblPatients(PatientID int(5) auto_increment Primary key,
+FirstName varchar(30) not null,
+LastName varchar(30) not null,
+Age int(3) not null, 
+Street varchar(50) not null,
+Town varchar(50) not null,
+Province varchar(25) not null,
+Commibity varchar(3) not null,
+Result varchar(25) not null,
+PractionerID int(5) not null,
+constraint PractionerID_fk foreign key(PractionerID) References tblPractioner(PractionerID));
+
+Alter table tblPatients auto_increment = 1;
+
+create table tblPractioner(PractionerID int(5) auto_increment Primary key,
+Username varchar(30) not null UNIQUE,
+FirstName varchar(30) not null,
+LastName varchar(30) not null,
+Password varchar(30) not null,
+Position varchar(30) not null );
+
+Alter table tblPractioner auto_increment = 1;
+
+
+insert into  tblPatients(firstname,lastname,age,street,town,province,commibity,result) 
+values('Moeketsi','Tsotetsi',23,'207 a Sedibeng village','Qwaqwa','Free state','No','Negative');
+
